@@ -24,6 +24,7 @@ var teamById = map[string]models.Team{
 
 func main() {
 	input := flag.String("input", "/tmp/games.tsv", "input location of games tsv file")
+	flag.Parse()
 
 	gameProcessor := gameprocessor.NewTsvFileGameResultProcessor()
 

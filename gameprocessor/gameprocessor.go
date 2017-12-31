@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"strings"
 	"strconv"
+	"fmt"
 )
 
 // GameResultReader reads game results from a uri.
@@ -32,9 +33,15 @@ func (processor tsvFileProcessor) Read(uri string) []models.GameResult {
 
 	games := string(bytes)
 
+	fmt.Println(games)
+
 	lines := strings.Split(games, "\n")
 	for _, line := range lines {
 		tokens := strings.Split(line, "\t")
+
+		if len(tokens) < 4 {
+			continue
+		}
 
 		sequence, _ := strconv.Atoi(tokens[IDX_SEQUENCE_ID])
 
