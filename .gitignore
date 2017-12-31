@@ -1,3 +1,4 @@
 .idea/
 ranking-engine.iml
-
+vendor/
+ranking-engine
